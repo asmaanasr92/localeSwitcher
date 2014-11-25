@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="welcome_message">tervetuloa</string>
+    <string name="swedish">Ruotsi</string>
+    <string name="danish">Tanska</string>
+    <string name="finnish">Suomi</string>
+    <string name="norwegian">Norja</string>
+</resources>

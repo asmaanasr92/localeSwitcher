@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="welcome_message">velkommen</string>
+    <string name="swedish">Svensk</string>
+    <string name="danish">Dansk</string>
+    <string name="finnish">Finsk</string>
+    <string name="norwegian">Norsk</string>
+</resources>

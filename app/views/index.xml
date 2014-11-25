@@ -1,0 +1,10 @@
+<Alloy>
+    <Window class="container" layout="absolute">
+        <View top="50" layout="vertical">
+            <Button top="10" id="setSwedish" onClick="setSwedish" titleid="swedish"/>
+            <Button top="10" id="setDanish" onClick="setDanish" titleid="danish"/>
+            <Button top="10" id="setNorwegian" onClick="setNorwegian" titleid="norwegian"/>
+            <Button top="10" id="setFinnish" onClick="setFinnish" titleid="finnish"/>
+        </View>
+    </Window>
+</Alloy>
