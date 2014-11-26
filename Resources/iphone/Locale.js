@@ -14,13 +14,10 @@ var Locale = function() {
         var loc = Ti.Locale.currentLanguage;
         return loc;
     };
-    this.bind = function(page) {
-        bound = page;
-    };
 };
 
 exports.create = function() {
-    var loc = new Locale();
-    _.extend(loc, Backbone.Events);
-    return loc;
+    var locale = new Locale();
+    _.extend(locale, Backbone.Events);
+    return locale;
 };

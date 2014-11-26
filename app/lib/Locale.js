@@ -20,8 +20,8 @@ var Locale = function() {
     };
 };
 exports.create = function() {
-    var loc = new Locale();
+    var locale = new Locale();
     //mixin to add on, off, bind and unbind functions
-    _.extend(loc, Backbone.Events);
-    return loc;
+    _.extend(locale, Backbone.Events);
+    return locale;
 };
