@@ -1,5 +1,4 @@
-var localeLib = require("locale");
-localeLib.bind($);
+var localeLib = require("Locale").create();
 
 function setSwedish() {
     localeLib.setLocale("se");
@@ -17,13 +16,14 @@ function setFinnish() {
     localeLib.setLocale("fi");
 }
 
-$.on("localeswitch", function(e) {
+localeLib.on("localeswitch", function(e) {
     $.setDanish.setTitle(L('danish'));
     $.setSwedish.setTitle(L('swedish'));
     $.setFinnish.setTitle(L('finnish'));
     $.setNorwegian.setTitle(L('norwegian'));
     $.button.setTitle(L('welcome_message'));
 });
+
 function openWelcomeIOS() {
     var welcome = Alloy.createController('welcome').getView();
     $.navWin.openWindow(welcome);

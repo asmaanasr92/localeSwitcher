@@ -80,10 +80,8 @@ function Controller() {
     $.__views.navWin && $.addTopLevelView($.__views.navWin);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var localeLib = require("locale");
-    _.extend(localeLib, Backbone.Events);
-    localeLib.bind($);
-    $.on("localeswitch", function() {
+    var localeLib = require("Locale").create();
+    localeLib.on("localeswitch", function() {
         $.setDanish.setTitle(L("danish"));
         $.setSwedish.setTitle(L("swedish"));
         $.setFinnish.setTitle(L("finnish"));

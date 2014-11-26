@@ -1,35 +1,27 @@
-/**
- * This module provides a simple facade to a third party market place locale switching module
- */
-var localeModule = require('com.shareourideas.locale'),
-    bound;
+var Locale = function() {
+    /**
+     * This module provides a simple facade to a third party market place locale switching module
+     */
+    var localeModule = require('com.shareourideas.locale');
 
-setLocale = function(locale) {
-    localeModule.setLocale(locale);
-    Titanium.App.Properties.setString("locale", locale);
-
-    if (bound) {
-        bound.trigger("localeswitch", {
+    this.setLocale = function(locale) {
+        localeModule.setLocale(locale);
+        Titanium.App.Properties.setString("locale", locale);
+        this.trigger("localeswitch", {
             "locale" : locale
         });
-    }
-    this.trigger("localeswitch", {
-        "locale" : locale
-    });
+    };
+    this.resetLocale = function() {
+        localeModule.resetLocale();
+    };
+    this.getLocale = function() {
+        var loc = Ti.Locale.currentLanguage;
+        return loc;
+    };
 };
-resetLocale = function() {
-    localeModule.resetLocale();
-};
-getLocale = function() {
-    var loc = Ti.Locale.currentLanguage;
+exports.create = function() {
+    var loc = new Locale();
+    //mixin to add on, off, bind and unbind functions
+    _.extend(loc, Backbone.Events);
     return loc;
-};
-bind = function(page) {
-    bound = page;
-};
-module.exports = {
-    setLocale : setLocale,
-    resetLocale : resetLocale,
-    getLocale : getLocale,
-    bind : bind
 };

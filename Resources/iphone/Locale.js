@@ -1,29 +1,26 @@
-var localeModule = require("com.shareourideas.locale"), bound;
-
-setLocale = function(locale) {
-    localeModule.setLocale(locale);
-    Titanium.App.Properties.setString("locale", locale);
-    this.trigger("localeswitch", {
-        locale: locale
-    });
+var Locale = function() {
+    var localeModule = require("com.shareourideas.locale");
+    this.setLocale = function(locale) {
+        localeModule.setLocale(locale);
+        Titanium.App.Properties.setString("locale", locale);
+        this.trigger("localeswitch", {
+            locale: locale
+        });
+    };
+    this.resetLocale = function() {
+        localeModule.resetLocale();
+    };
+    this.getLocale = function() {
+        var loc = Ti.Locale.currentLanguage;
+        return loc;
+    };
+    this.bind = function(page) {
+        bound = page;
+    };
 };
 
-resetLocale = function() {
-    localeModule.resetLocale();
-};
-
-getLocale = function() {
-    var loc = Ti.Locale.currentLanguage;
+exports.create = function() {
+    var loc = new Locale();
+    _.extend(loc, Backbone.Events);
     return loc;
-};
-
-bind = function(page) {
-    bound = page;
-};
-
-module.exports = {
-    setLocale: setLocale,
-    resetLocale: resetLocale,
-    getLocale: getLocale,
-    bind: bind
 };
