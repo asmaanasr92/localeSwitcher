@@ -1,5 +1,5 @@
 <Alloy>
-    <Window class="container">
+    <Window class="container" backgroundColor="white">
         <Label top="10" id="label" textid="welcome_message"/>
     </Window>
 </Alloy>

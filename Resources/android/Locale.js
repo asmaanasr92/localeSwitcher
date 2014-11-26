@@ -3,7 +3,7 @@ var localeModule = require("com.shareourideas.locale"), bound;
 setLocale = function(locale) {
     localeModule.setLocale(locale);
     Titanium.App.Properties.setString("locale", locale);
-    this.trigger("localeswitch", {
+    bound && bound.trigger("localeswitch", {
         locale: locale
     });
 };
